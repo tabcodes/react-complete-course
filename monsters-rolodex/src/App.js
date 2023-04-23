@@ -36,7 +36,6 @@ class App extends Component {
 
   render() {
     console.log("render called");
-    const { users, searchField } = this.state;
     const { onUserSearch } = this;
 
     const filteredUsers = this.state.users.filter((user) => {
@@ -48,10 +47,10 @@ class App extends Component {
         <SearchBox
           onChangeHandler={onUserSearch}
           placeholder="This is the Way"
-          class="search-box"
+          className="search-box"
         />
 
-        <CardList users={filteredUsers} />
+        <CardList className="card-list" users={filteredUsers} />
       </div>
     );
   }
