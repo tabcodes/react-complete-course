@@ -40,7 +40,7 @@ class App extends Component {
 
     const { users, searchField } = this.state;
     const { onUserSearch } = this;
-    
+
     const filteredUsers = this.state.users.filter((user) => {
       return user.name.toLowerCase().includes(this.state.searchField);
     });
@@ -50,7 +50,7 @@ class App extends Component {
         <input
           className="search-box"
           type="search"
-          placeholder="search monsters"
+          placeholder="search users"
           onChange={this.onUserSearch}
         />
 
