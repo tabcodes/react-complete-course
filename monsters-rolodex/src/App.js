@@ -1,5 +1,7 @@
 import "./App.css";
 import { Component } from "react";
+import CardList from "./components/card-list/CardList";
+import SearchBox from "./components/search-box/SearchBox";
 
 class App extends Component {
   constructor() {
@@ -7,7 +9,7 @@ class App extends Component {
 
     this.state = {
       users: [],
-      searchField: '',
+      searchField: "",
     };
 
     console.log("Constructor.");
@@ -18,26 +20,22 @@ class App extends Component {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
       .then((users) =>
-        this.setState(
-          () => {
-            return { users: users, filteredUsers: users };
-          }
-        )
+        this.setState(() => {
+          return { users: users, filteredUsers: users };
+        })
       );
   }
 
   onUserSearch = (e) => {
     const searchField = e.target.value.toLowerCase();
 
-    this.setState(
-      () => {
-        return { searchField }
-      }
-    );
-  }
+    this.setState(() => {
+      return { searchField };
+    });
+  };
 
   render() {
-
+    console.log("render called");
     const { users, searchField } = this.state;
     const { onUserSearch } = this;
 
@@ -47,20 +45,13 @@ class App extends Component {
 
     return (
       <div className="App">
-        <input
-          className="search-box"
-          type="search"
-          placeholder="search users"
-          onChange={this.onUserSearch}
+        <SearchBox
+          onChangeHandler={onUserSearch}
+          placeholder="This is the Way"
+          class="search-box"
         />
 
-        {filteredUsers.map((user) => {
-          return (
-            <div key={user.id}>
-              <h1>{user.name}</h1>
-            </div>
-          );
-        })}
+        <CardList users={filteredUsers} />
       </div>
     );
   }
