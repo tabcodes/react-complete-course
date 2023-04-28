@@ -44,6 +44,7 @@ class App extends Component {
 
     return (
       <div className="App">
+        <h1 className="app-title">React Rolodex</h1>
         <SearchBox
           onChangeHandler={onUserSearch}
           placeholder="This is the Way"
