@@ -7,6 +7,7 @@ import SearchBox from "./components/search-box/SearchBox";
 const App = () => {
   const [searchFieldValue, setSearchFieldValue] = useState("");
   const [users, setUsers] = useState([]);
+  const [title, setTitle] = useState('');
   const [filteredUsers, setFilteredUsers] = useState(users);
 
   useEffect(() => {
@@ -20,6 +21,11 @@ const App = () => {
     setSearchFieldValue(searchFieldString);
   };
 
+  const onTitleChange = (ev) => {
+    const titleString = ev.target.value.toLowerCase();
+    setTitle(titleString);
+  };
+
   useEffect(() => {
     const newFilteredUsers = users.filter((user) => {
       return user.name.toLowerCase().includes(searchFieldValue);
@@ -30,13 +36,18 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1 className="app-title">React Rolodex</h1>
+      <h1 className="app-title">{title}</h1>
       <SearchBox
         onChangeHandler={onUserSearch}
-        placeholder="This is the Way"
+        placeholder="Filter Users..."
         className="search-box"
       />
-
+      <br />
+      <SearchBox
+        onChangeHandler={onTitleChange}
+        placeholder="Set Title..."
+        className="search-box"
+      />
       <CardList className="card-list" users={filteredUsers} />
     </div>
   );
