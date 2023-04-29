@@ -15,7 +15,6 @@ const App = () => {
       .then((users) => setUsers(users));
   }, []);
 
-
   const onUserSearch = (ev) => {
     const searchFieldString = ev.target.value.toLowerCase();
     setSearchFieldValue(searchFieldString);
@@ -28,7 +27,6 @@ const App = () => {
 
     setFilteredUsers(newFilteredUsers);
   }, [users, searchFieldValue]);
-
 
   return (
     <div className="App">
