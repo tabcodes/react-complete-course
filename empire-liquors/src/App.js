@@ -1,9 +1,9 @@
-import './LiquorTypes.scss'
 import imgBourbon from './assets/img/bourbon.png'
 import imgVodka from './assets/img/vodka.png'
 import imgTequila from './assets/img/tequila.png'
 import imgGin from './assets/img/gin.png'
 import imgScotch from './assets/img/scotch.png'
+import Directory from './components/Directory/Directory'
 
 const App = () => {
   const liquorTypes = [
@@ -35,18 +35,9 @@ const App = () => {
   ];
 
   return (
-    <div className="categories-container">
-      {liquorTypes.map(({ id, title, imagePath }) => (
-        <div className="category-container">
-          <div className="background-image" style={{backgroundImage: `url(${imagePath})`}}></div>
-          {/* <img /> */}
-          <div className="category-body-container">
-            <h2>{title}</h2>
-            <p>Shop Now</p>
-          </div>
-        </div>
-      ))}
-    </div>
+    <div>
+      <Directory types={liquorTypes} />
+    </div>  
   );
 };
 
