@@ -1,6 +1,5 @@
 import "./Button.scss";
-
-const Button = ({ children, buttonType, otherProps }) => {
+const Button = ({ children, buttonType, ...otherProps }) => {
   const BUTTON_TYPE_CLASSES = {
     google: "google-sign-in",
     inverted: "inverted",
