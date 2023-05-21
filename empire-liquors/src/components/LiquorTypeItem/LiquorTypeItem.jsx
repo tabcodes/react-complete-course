@@ -1,7 +1,7 @@
 import "./LiquorTypeItem.scss";
 
 const LiquorTypeItem = ({ liquorType }) => {
-    const { id, title, imagePath } = liquorType
+  const { id, title, imagePath } = liquorType;
   return (
     <div className="category-container">
       <div
